@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неоновый Кликер</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #48c6e7;
+            margin: 0;
+        }
+        #clickImage {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        #clickImage:hover {
+            transform: scale(1.1);
+        }
+        #score {
+            font-size: 24px;
+            color: #aa47bc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clickerContainer">
+        <img id="clickImage" src="clicker.png" alt="Click Image">
+        <div id="score">Счет: <span id="count">0</span></div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        // Функция для обработки кликов по изображению
+        function handleClick() {
+            score++;
+            document.getElementById('count').textContent = score;
+
+            // Проверяем достижение 10 кликов
+            if (score === 10) {
+                alert("Вы достигли 10 кликов, теперь вы гей");
+            }
+        }
+
+        // Добавляем обработчик клика к изображению
+        document.getElementById('clickImage').addEventListener('click', handleClick);
+    </script>
+</body>
+</html>
